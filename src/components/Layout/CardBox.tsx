@@ -1,22 +1,34 @@
 import { Button, Stack, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { ReactNode } from "react";
 
 interface CardBoxProps {
     router?: string
     height?: string
     children: ReactNode
+    notLink?: boolean
 }
 
-export function CardBox({children, height = "180px", router}:CardBoxProps){
+export function CardBox({children, notLink = false, height = "180px", router}:CardBoxProps){
 
     const CardBoxBackgroundColorTheme = useColorModeValue("gray.100", "gray.700")
     const CardBoxTextColorTheme = useColorModeValue("gray.900", "gray.50")
 
+    const route = useRouter()
+
+    function handleGoToUrl (){
+        if(!notLink){
+            route.push(`${router}`)
+        }
+    }
+
     return (
-        <Link href={`${router}`} passHref>
             <Button
-                cursor="pointer"
+                as={notLink ? 'div' : 'button'}
+                cursor={notLink ? 'auto' : 'pointer'}
+                w="100%"
+                onClick={handleGoToUrl}
                 bg={CardBoxBackgroundColorTheme}
                 color={CardBoxTextColorTheme}
                 minHeight={height}
@@ -40,6 +52,5 @@ export function CardBox({children, height = "180px", router}:CardBoxProps){
                    {children}
                 </Stack>
             </Button>
-        </Link>
     )
 }

@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
     <SearchContextProvider>
       <ChakraProvider theme={theme} >
           <ToastContainer 
-            position="top-right"
+            position="bottom-center"
             autoClose={5000}
             hideProgressBar={false}
             newestOnTop={false}

@@ -22,7 +22,6 @@ export default function Company(){
 
     const router = useRouter()
     const { companyId } = router.query
-
     const [ selectedCompany, setSelectedCompany ] = useState<CompanyProps>({
         id: 0,
         name: '',
@@ -30,50 +29,40 @@ export default function Company(){
     })
     const [ numbers, setNumbers ] = useState<NumbersProps[]>([])
 
-    console.log('company url id: ' + companyId)
 
-    async function loadCompanies() {
-        axios.get('/companies')
-            .then((response) => {
-                
-                const filtered = response.data.filter((company) => {
-                    return company.id == companyId
-                })
-                
-                console.log(filtered[0])
-
-                setSelectedCompany(filtered[0])
-
-            })
-            .catch(function (error) {
-                toast.error('Company not found!');
-            })
-    }
-
-    async function loadNumbersOfCompany() {
-        axios.get('/phone_numbers')
-            .then((response) => {
-                const dados = response.data
-                var numbersFound = dados.filter((phoneNumbers) => {
-                    return phoneNumbers.company_id == companyId
-                })                
-
-                setNumbers(numbersFound)
-
-            })
-            .catch(function (error) {
-                toast.error('Numbers not found!');
-            })
-    }
-
+    
     useEffect(() => {
-        loadCompanies();
+        const { companyId } = router.query
+        async function loadCompany() {
+            await axios.get(`/companies/${companyId}`)
+                .then((response) => {
+                    const data = response.data
+                    setSelectedCompany(data)
+                })
+                .catch( (error) => {
+                    toast.warning('Searching numbers from company...')
+                })
+        }
+        
+        async function loadNumbersOfCompany() {
+            await axios.get(`/phone_numbers?company_id=${companyId}`)
+                .then((response) => {
+                    const data = response.data
+                    setNumbers(data)
+                })
+                .catch((error) => {
+                    toast.error('Numbers not found!')
+                })
+        }
+
+        loadCompany();
         loadNumbersOfCompany();
+        
     }, [companyId]);
 
 
     return (
-        <CommunsParts title={`Company ${selectedCompany.name && selectedCompany.name}`} subtitle={`Company vatin ${selectedCompany.vatin && selectedCompany.vatin}`}>
+        <CommunsParts title={selectedCompany.name && selectedCompany.name} subtitle={`Company vatin ${selectedCompany.vatin && selectedCompany.vatin}`}>
             <SimpleGrid width="100%" columns={{base: 1, md: 2, lg: 3}} spacing={8}>
             {
                 numbers.length ? numbers.map((number) => {

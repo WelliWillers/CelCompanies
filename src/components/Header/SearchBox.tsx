@@ -9,8 +9,8 @@ export function SearchBox() {
     const SearchTextColorTheme = useColorModeValue("gray.900", "gray.50")
 
     return (
-        <Flex as="label" flex="1" py="4" px="8" ml="6" maxWidth={400} alignSelf="center" color={SearchTextColorTheme} position="relative" bg={SearchBackgroundColorTheme} borderRadius="full">
-            <Input px="4" mr="4" color={SearchTextColorTheme} variant="unstyled" onChange={(e) => handleGetSearchText(e.target.value)} placeholder="Search a company" _placeholder={{ color: 'gray.400' }} />
+        <Flex as="label" flex="1" py="4" px="8" ml={{base: "0", lg:"6"}} maxWidth={400} alignSelf="center" color={SearchTextColorTheme} position="relative" bg={SearchBackgroundColorTheme} borderRadius="full">
+            <Input px="2" mr="4" color={SearchTextColorTheme} variant="unstyled" onChange={(e) => handleGetSearchText(e.target.value)} placeholder="Search a company" _placeholder={{ color: 'gray.400' }} />
             <Icon as={RiSearchLine} fontSize="20" />
         </Flex>
     )
