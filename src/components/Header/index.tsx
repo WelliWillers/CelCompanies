@@ -1,9 +1,10 @@
-import { Box, Flex, Icon, IconButton, useBreakpointValue, Link } from "@chakra-ui/react"
+import { Flex, Icon, IconButton, useBreakpointValue } from "@chakra-ui/react"
 import { Icons } from "./Icons"
 import { SearchBox } from "./SearchBox"
 import { Logo } from "./Logo"
 import Router, { useRouter } from "next/router"
 import { RiArrowLeftLine } from "react-icons/ri"
+import Link from "next/link"
 
 
 export function Header() {
@@ -31,8 +32,8 @@ export function Header() {
                     )
                 }
                 
-                <Link cursor="pointer" textDecoration="none" href="/">
-                    <Logo />
+                <Link href="/">
+                    <Logo cursor="pointer"/>
                 </Link>
             </Flex>
 

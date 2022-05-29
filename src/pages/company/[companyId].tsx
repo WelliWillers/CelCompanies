@@ -1,7 +1,8 @@
-import { Heading, SimpleGrid, Text } from "@chakra-ui/react";
+import { Heading, Icon, SimpleGrid, Text } from "@chakra-ui/react";
 import axios from "axios";
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
+import { RiPhoneLine, RiSmartphoneLine } from "react-icons/ri";
 import { toast } from "react-toastify";
 import { CardBox } from "../../components/Layout/CardBox";
 import CommunsParts from "../../components/Layout/CommunsParts"
@@ -29,8 +30,6 @@ export default function Company(){
     })
     const [ numbers, setNumbers ] = useState<NumbersProps[]>([])
 
-
-    
     useEffect(() => {
         const { companyId } = router.query
         async function loadCompany() {
@@ -58,7 +57,7 @@ export default function Company(){
         loadCompany();
         loadNumbersOfCompany();
         
-    }, [companyId]);
+    }, [companyId != undefined && companyId]);
 
 
     return (
@@ -68,6 +67,7 @@ export default function Company(){
                 numbers.length ? numbers.map((number) => {
                     return (
                         <CardBox key={number.id} router={`/number/${number.id}`}>
+                            <Icon color="primary.normal" as={number.type == "mobile" ? RiSmartphoneLine : RiPhoneLine} fontSize="50"/>
                             <Heading fontSize="25">
                                 {number.id.toString()}
                             </Heading>  

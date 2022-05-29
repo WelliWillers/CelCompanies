@@ -1,45 +1,61 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<div id="about"> 
+  <h1>:purple_circle: CelCompanies</h1>
+  
+  <p>
+    This project was developed with the aim of listing the companies registered in a fake API and their respective means of contact </br>
+  </p>
+  
+  <img src="https://github.com/WelliWillers/CelFocus-/tree/main/public/capa.png">
+</div>
 
-## Getting Started
 
-First, run the development server:
+<div id="table-of-content"> 
+  <h1>:purple_circle: Table of Contents</h1>
+  
+  <p align="center">
+    <a href="#about">About</a> •
+    <a href="#table-of-content"> Table of Content</a> • 
+    <a href="#technologies-used"> Technologies used</a> • 
+    <a href="#requirements"> Requirements</a> • 
+    <a href="#installation"> Installation</a>
+  </p>
+</div>
 
-```bash
+<div id="technologies-used"> 
+  <h1> :purple_circle: Technologies used</h1>
+ </div>
+ 
+- [ReactJs](https://reactjs.org/)
+- [NextJs](https://nextjs.org/)
+- [Chakra UI](https://chakra-ui.com/)
 
-# Acess the repo and start the install process
-$ cd celfocus
+<div id="requirements"> 
+  <h1>:purple_circle: Requirements</h1>
+</div>
 
-# Install the dependencies
-$ npm install
+Before starting, you will need to have the following tools installed on your machine:
+[Git](https://git-scm.com), [Node.js](https://nodejs.org/en/). 
+Besides, it's good to have an editor to work with the code like [Visual Studio Code](https://code.visualstudio.com/)
 
-# Start the fake API server
-$ npm run api
-# This fake api will be running on port http://localhost:3000
-
-# Execute the web server 
-$ npm run dev
+<div id="installation"> 
+  <h1>:purple_circle: Installation</h1>
+</div>
 
 ```
+    bash
 
-Open [http://localhost:3001](http://localhost:3001) with your browser to see the result.
+    # Acess the repo and start the install process
+    $ cd celfocus
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+    # Install the dependencies
+    $ npm install
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+    # Start the fake API server
+    $ npm run api
+    # This fake api will be running on http://localhost:3000
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+    # Execute the web server 
+    $ npm run dev
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+    # This website will be running on http://localhost:3001
+```
