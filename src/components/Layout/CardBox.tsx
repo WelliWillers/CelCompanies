@@ -1,49 +1,45 @@
-import { Flex, Heading, Text } from "@chakra-ui/react";
+import { Button, Stack, useColorModeValue } from "@chakra-ui/react";
 import Link from "next/link";
-import { ReactElement, ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface CardBoxProps {
-    router: string
-    title: string
-    subtitle: string
-    id: number
+    router?: string
     height?: string
-    icon?: ReactElement
-    children?: ReactNode
+    children: ReactNode
 }
 
-export function CardBox({children, id, title, subtitle, icon, height = "180px", router}:CardBoxProps){
+export function CardBox({children, height = "180px", router}:CardBoxProps){
+
+    const CardBoxBackgroundColorTheme = useColorModeValue("gray.100", "gray.700")
+    const CardBoxTextColorTheme = useColorModeValue("gray.900", "gray.50")
+
     return (
-        <Link href={`/${router}/${id}`} passHref>
-            <Flex
+        <Link href={`${router}`} passHref>
+            <Button
                 cursor="pointer"
-                bg="white"
-                color="gray.900"
+                bg={CardBoxBackgroundColorTheme}
+                color={CardBoxTextColorTheme}
                 minHeight={height}
                 borderRadius={30}
                 boxShadow="md"
-                align="center"
-                padding={5}
-                textAlign="center"
-                justify="center"
-                flexDir="column"
-                transition="border 300ms"
+                padding={5}       
+                transition="border 200ms"
                 _hover={{
                     border: "5px solid",
                     borderColor:"primary.normal"
                 }}
             >
-                {
-                    icon && (
-                        icon
-                    )
-                }
-                <Heading fontSize="25">
-                    {title}
-                </Heading>  
-                <Text fontSize="md" color="gray.400">{subtitle.toLocaleUpperCase()}</Text>
-                {children}
-            </Flex>
+                <Stack 
+                    spacing={4}
+                    display="flex"
+                    textAlign="center"  
+                    justifyContent="center"
+                    alignItems="center"
+                    flexDir="column" 
+                >
+                   {children}
+                </Stack>
+            </Button>
         </Link>
     )
 }

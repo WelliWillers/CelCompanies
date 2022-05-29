@@ -1,6 +1,5 @@
-import { Flex, Heading, Icon, SimpleGrid, Text } from "@chakra-ui/react";
+import { Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import axios from "axios";
-import Link from "next/link";
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
@@ -22,21 +21,26 @@ interface NumbersProps {
 export default function Company(){
 
     const router = useRouter()
+    const { companyId } = router.query
+
     const [ selectedCompany, setSelectedCompany ] = useState<CompanyProps>({
         id: 0,
         name: '',
         vatin: ''
     })
     const [ numbers, setNumbers ] = useState<NumbersProps[]>([])
-    const { companyId } = router.query
+
+    console.log('company url id: ' + companyId)
 
     async function loadCompanies() {
         axios.get('/companies')
             .then((response) => {
-                const dados = response.data
-                var filtered = dados.filter((company) => {
+                
+                const filtered = response.data.filter((company) => {
                     return company.id == companyId
-                })                
+                })
+                
+                console.log(filtered[0])
 
                 setSelectedCompany(filtered[0])
 
@@ -65,7 +69,7 @@ export default function Company(){
     useEffect(() => {
         loadCompanies();
         loadNumbersOfCompany();
-    }, []);
+    }, [companyId]);
 
 
     return (
@@ -74,9 +78,14 @@ export default function Company(){
             {
                 numbers.length ? numbers.map((number) => {
                     return (
-                        <CardBox key={number.id} title={number.id.toString()} router="number" subtitle={number.type.toLocaleUpperCase()} id={number.id} />
+                        <CardBox key={number.id} router={`/number/${number.id}`}>
+                            <Heading fontSize="25">
+                                {number.id.toString()}
+                            </Heading>  
+                            <Text fontSize="md" color="gray.400">Type of number:  {number.type.toLocaleUpperCase()}</Text>
+                        </CardBox>
                     )
-                }) : (<Text textAlign={{base: "center", md: "left"}} fontSize="md">No numbers found</Text>)
+                }) : (<Text color="primary.normal" textAlign={{base: "center", md: "left"}} fontSize="md">No numbers found</Text>)
             }
             </SimpleGrid>
         </CommunsParts>

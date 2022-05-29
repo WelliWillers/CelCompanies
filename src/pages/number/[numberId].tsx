@@ -1,8 +1,9 @@
-import { Button, Icon } from "@chakra-ui/react";
+import { Button, Heading, Icon, Text } from "@chakra-ui/react";
 import axios from "axios"
+import Link from "next/link";
 import { useRouter } from "next/router"
 import { useEffect, useState } from "react";
-import { RiPhoneLine } from "react-icons/ri";
+import { RiArrowRightLine, RiPhoneLine, RiSmartphoneLine } from "react-icons/ri";
 import { toast } from "react-toastify";
 import { CardBox } from "../../components/Layout/CardBox";
 import CommunsParts from "../../components/Layout/CommunsParts"
@@ -44,8 +45,15 @@ export default function Number(){
 
     return (
         <CommunsParts title={`Number ${numberId}`} subtitle={`Type of number contact: ${selectedNumber.type && selectedNumber.type.toLocaleUpperCase()}`}>
-            <CardBox key={selectedNumber.id} height="280px" icon={<Icon color="primary.normal" as={RiPhoneLine} fontSize="50" mb="3" />} title={selectedNumber.id.toString()} router="number" subtitle={selectedNumber.type} id={selectedNumber.id} >
-                <Button mt="5" colorScheme='blue' size="lg">Ligar</Button>
+            <CardBox key={selectedNumber.id} height="280px" >
+                <Icon color="primary.normal" as={selectedNumber.type == "mobile" ? RiSmartphoneLine : RiPhoneLine} fontSize="50"/>
+                <Heading fontSize="25">
+                    {selectedNumber.id.toString()}
+                </Heading>  
+                <Text fontSize="md" color="gray.400">Type of number:  {selectedNumber.type.toLocaleUpperCase()}</Text>
+                <Link passHref href={`tel:${selectedNumber.id}`}>
+                    <Button variant="outline" borderColor="primary.normal" color="primary.normal"  size="lg">Call to this number <Icon ml="4" fontSize={20} as={RiArrowRightLine} /></Button>
+                </Link>
             </CardBox>
         </CommunsParts>
     )

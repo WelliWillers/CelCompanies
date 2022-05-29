@@ -1,6 +1,5 @@
-import { Box, Flex, Heading, SimpleGrid, Stack, Text } from "@chakra-ui/react";
+import { Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import axios from "axios";
-import Link from "next/link";
 import { useEffect, useState } from "react";
 import { toast } from "react-toastify";
 import { CardBox } from "../components/Layout/CardBox";
@@ -37,7 +36,7 @@ export default function Home() {
 
   useEffect(() => {
     loadCompanies();
-  }, [search.length >= 3 && search]);
+  }, [search]);
 
   return (
     <CommunsParts title="Companies list" subtitle="Click on a company to see more about it.">
@@ -46,10 +45,15 @@ export default function Home() {
           companies.length ?
           companies.map((company) => {
             return (
-              <CardBox height="280px" key={company.id} title={company.name.toString()} router="company" subtitle={'Vatin: ' + company.vatin.toLocaleUpperCase()} id={company.id} />
+              <CardBox height="280px" key={company.id} router={`/company/${company.id}`}>
+                <Heading fontSize="25">
+                  {company.name.toString()}
+                </Heading>  
+                <Text fontSize="md" color="gray.400">Vatin:  {company.vatin.toLocaleUpperCase()}</Text>
+              </CardBox>
             )
           }) : (
-            <Text textAlign={{base: "center", md: "left"}} fontSize="md">No companies found</Text>
+            <Text color="primary.normal" textAlign={{base: "center", md: "left"}} fontSize="md">No companies found</Text>
           )
         }
       </SimpleGrid>
