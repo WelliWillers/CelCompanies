@@ -5,7 +5,7 @@
     This project was developed with the aim of listing the companies registered in a fake API and their respective means of contact </br>
   </p>
   
-  <img src="https://github.com/WelliWillers/CelFocus-/tree/main/public/capa.png">
+  <img style="width:100%;" src="https://github.com/WelliWillers/CelFocus-/blob/main/public/capa.png?raw=true">
 </div>
 
 
