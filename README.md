@@ -41,8 +41,7 @@ Besides, it's good to have an editor to work with the code like [Visual Studio C
   <h1>:purple_circle: Installation</h1>
 </div>
 
-```
-    bash
+```bash
 
     # Acess the repo and start the install process
     $ cd celfocus
