@@ -1,5 +1,5 @@
 <div id="about"> 
-  <h1>:purple_circle: CelCompanies</h1>
+  <h1>:red_circle: CelCompanies</h1>
   
   <p>
     This project was developed with the aim of listing the companies registered in a fake API and their respective means of contact </br>
@@ -10,7 +10,7 @@
 
 
 <div id="table-of-content"> 
-  <h1>:purple_circle: Table of Contents</h1>
+  <h1>:red_circle: Table of Contents</h1>
   
   <p align="center">
     <a href="#about">About</a> •
@@ -22,7 +22,7 @@
 </div>
 
 <div id="technologies-used"> 
-  <h1> :purple_circle: Technologies used</h1>
+  <h1> :red_circle: Technologies used</h1>
  </div>
  
 - [ReactJs](https://reactjs.org/)
@@ -30,7 +30,7 @@
 - [Chakra UI](https://chakra-ui.com/)
 
 <div id="requirements"> 
-  <h1>:purple_circle: Requirements</h1>
+  <h1>:red_circle: Requirements</h1>
 </div>
 
 Before starting, you will need to have the following tools installed on your machine:
@@ -38,7 +38,7 @@ Before starting, you will need to have the following tools installed on your mac
 Besides, it's good to have an editor to work with the code like [Visual Studio Code](https://code.visualstudio.com/)
 
 <div id="installation"> 
-  <h1>:purple_circle: Installation</h1>
+  <h1>:red_circle: Installation</h1>
 </div>
 
 ```bash
