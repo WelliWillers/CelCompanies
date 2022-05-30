@@ -11,11 +11,11 @@ interface CommunsPartsProps {
 
 export default function CommunsParts({title, subtitle, children}: CommunsPartsProps){
     return (
-        <Box h="100vh">
-            <Flex direction="column" height={{base: "100%"}}>
+        <Box height="100vh" minHeight="100%">
+            <Flex direction="column" h={{base: "auto"}}>
                 <Header/> 
 
-                <Flex w="100%" h="100%" minHeight="65vh" maxWidth={1480} my="6" px="6" pb="5" mx="auto" flexDirection="column">
+                <Flex w="100%" h="100%" minHeight="65vh" maxWidth={1480} my="6" px="6" pb="16" mx="auto" flexDirection="column">
                     <Box py="8" textAlign={{base: "center", lg: "left"}}>
                         <Heading>{title ? title : ''}</Heading>
                         <Text fontSize="md">
@@ -26,7 +26,9 @@ export default function CommunsParts({title, subtitle, children}: CommunsPartsPr
                     {children}
                 </Flex>
 
-                <Footer />
+                <Box width="100%" position="fixed" bottom="0">
+                    <Footer />
+                </Box>
             </Flex>
         </Box>
     )

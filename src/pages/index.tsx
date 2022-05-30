@@ -40,13 +40,13 @@ export default function Home() {
   }, [search]);
 
   return (
-    <CommunsParts title="Companies list" subtitle="Click on a company to see more about it.">
+    <CommunsParts title="Companies list" subtitle="Click on a company to see more about it">
       <SimpleGrid width="100%" columns={{base: 1, md: 2, lg: 3}} spacing={8}>
         {
           companies.length ?
           companies.map((company) => {
             return (
-              <CardBox height="280px" key={company.id} router={`/company/${company.id}`}>
+              <CardBox height="190px" key={company.id} router={`/company/${company.id}`}>
                 <Heading color="primary.normal">LOGO</Heading>
                 <Heading fontSize="25">
                   {company.name.toString()}
