@@ -3,6 +3,7 @@ import { AppProps } from 'next/app'
 import {theme} from '../styles/theme'
 import { ChakraProvider } from '@chakra-ui/react'
 import { SearchContextProvider } from '../contexts/SearchContext';
+import '../styles/global.css'
 
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';

@@ -1,7 +1,6 @@
-import { Heading, Icon, SimpleGrid, Text } from "@chakra-ui/react";
+import { Heading, SimpleGrid, Text } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Ri4KLine } from "react-icons/ri";
 import { toast } from "react-toastify";
 import { CardBox } from "../components/Layout/CardBox";
 import CommunsParts from "../components/Layout/CommunsParts";

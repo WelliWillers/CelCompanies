@@ -1,4 +1,4 @@
-import { Flex, Icon, IconButton, useBreakpointValue } from "@chakra-ui/react"
+import { Box, Flex, Icon, IconButton, useBreakpointValue } from "@chakra-ui/react"
 import { Icons } from "./Icons"
 import { SearchBox } from "./SearchBox"
 import { Logo } from "./Logo"
@@ -8,7 +8,7 @@ import Link from "next/link"
 
 
 export function Header() {
-    const { asPath,  } = useRouter()
+    const { asPath } = useRouter()
 
     const showInLarge = useBreakpointValue({
         base: false,
@@ -37,19 +37,21 @@ export function Header() {
                 </Link>
             </Flex>
 
-            {
-                asPath == '/' && (
-                    <SearchBox />
-                )
-            }
+            <Box flexDirection="row" gap="5" alignItems="center">
+                {
+                    asPath == '/' && (
+                        <SearchBox />
+                    )
+                }
 
-            {
-                showInLarge && (
-                    <Flex align={{base: 'center', lg: 'right'}}>
-                        <Icons />
-                    </Flex>
-                )
-            }
+                {
+                    showInLarge && (
+                        <Flex align={{base: 'center', lg: 'right'}}>
+                            <Icons />
+                        </Flex>
+                    )
+                }
+            </Box>
 
         </Flex>
     )

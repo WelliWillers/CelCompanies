@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "api": "json-server --watch ./src/api/db.json --port 3000"
+    "api": "json-server --watch ./src/api/db.json --host 0.0.0.0 --port 3000"
   },
   "dependencies": {
     "@chakra-ui/react": "^2.0.0",
