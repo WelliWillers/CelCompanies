@@ -13,7 +13,7 @@ export default function CommunsParts({title, subtitle, children}: CommunsPartsPr
     return (
         <Box h="100vh">
             <Flex direction="column" height={{base: "100%"}}>
-                <Header/>
+                <Header/> 
 
                 <Flex w="100%" h="100%" minHeight="65vh" maxWidth={1480} my="6" px="6" pb="5" mx="auto" flexDirection="column">
                     <Box py="8" textAlign={{base: "center", lg: "left"}}>
