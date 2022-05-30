@@ -28,7 +28,6 @@ export default function Number(){
         await axios.get(`/phone_numbers?id=${numberId}`)
             .then((response) => {
                 const data = response.data
-                toast.success('Numbers found!');
                 setSelectedNumber(data[0])
             })
             .catch(function (error) {

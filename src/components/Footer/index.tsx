@@ -10,14 +10,14 @@ export function Footer(){
                 <Box>
                     <Text fontSize="sm">©2022 All rights reserved.</Text>
                 </Box>
-                <Flex gap={4}>
+                {/* <Flex gap={4}>
                     <Link target="_blank" href="#0">
                         <Icon cursor="pointer" color={IconsTextColorTheme} as={RiFacebookBoxLine} fontSize="20"/>
                     </Link>
                     <Link target="_blank" href="#0">
                         <Icon cursor="pointer" color={IconsTextColorTheme} as={RiInstagramLine} fontSize="20"/>
                     </Link>
-                </Flex>
+                </Flex> */}
             </Flex>
         </Flex>
     )
