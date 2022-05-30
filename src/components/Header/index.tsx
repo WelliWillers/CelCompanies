@@ -37,7 +37,7 @@ export function Header() {
                 </Link>
             </Flex>
 
-            <Box flexDirection="row" gap="5" alignItems="center">
+            <Flex flexDirection="row" gap="5" alignItems="center">
                 {
                     asPath == '/' && (
                         <SearchBox />
@@ -51,7 +51,7 @@ export function Header() {
                         </Flex>
                     )
                 }
-            </Box>
+            </Flex>
 
         </Flex>
     )

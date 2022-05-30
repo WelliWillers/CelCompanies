@@ -55,6 +55,8 @@ Besides, it's good to have an editor to work with the code like [Visual Studio C
 
     # Execute the web server 
     $ npm run dev
-
     # This website will be running on http://localhost:3001
+
+    # To build the project run the following command 
+    $ npm run build
 ```
