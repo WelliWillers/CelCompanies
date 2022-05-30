@@ -10,6 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function MyApp({ Component, pageProps }: AppProps) {
 
+  // axios.defaults.baseURL = 'http://seu IPV4 aqui:3000';
   axios.defaults.baseURL = 'http://localhost:3000';
 
   return (
